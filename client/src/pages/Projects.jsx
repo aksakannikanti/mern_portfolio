@@ -22,7 +22,7 @@ function Projects() {
   const fetchProjects = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/projects"
+        `${import.meta.env.VITE_API_URL}/api/projects`
       );
 
       setProjects(res.data);
@@ -41,7 +41,7 @@ function Projects() {
     }
 
     const response = await axios.post(
-      "http://localhost:5000/api/projects",
+      `${import.meta.env.VITE_API_URL}/api/projects`,
       newProject,
       {
         headers: {
@@ -83,7 +83,7 @@ function Projects() {
     const token = localStorage.getItem("token");
 
     await axios.delete(
-      `http://localhost:5000/api/projects/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/projects/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -101,7 +101,7 @@ function Projects() {
     const token = localStorage.getItem("token");
 
     await axios.put(
-      `http://localhost:5000/api/projects/${project._id}`,
+      `${import.meta.env.VITE_API_URL}/api/projects/${project._id}`,
       project,
       {
         headers: {

@@ -21,7 +21,7 @@ function Profiles() {
   const fetchProfiles = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/profiles"
+        `${import.meta.env.VITE_API_URL}/api/profiles`
       );
 
       setProfiles(res.data);
@@ -41,7 +41,7 @@ function Profiles() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/profiles",
+        `${import.meta.env.VITE_API_URL}/api/profiles`,
         newProfile,
         {
           headers: {
@@ -80,7 +80,7 @@ function Profiles() {
       }
 
       await axios.put(
-        `http://localhost:5000/api/profiles/${profile._id}`,
+        `${import.meta.env.VITE_API_URL}/api/profiles/${profile._id}`,
         profile,
         {
           headers: {
@@ -114,7 +114,7 @@ function Profiles() {
       }
 
       await axios.delete(
-        `http://localhost:5000/api/profiles/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/profiles/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

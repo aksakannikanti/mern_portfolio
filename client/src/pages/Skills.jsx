@@ -15,7 +15,7 @@ function Skills() {
   const fetchSkills = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/skills"
+        `${import.meta.env.VITE_API_URL}/api/skills`
       );
 
       setSkillData(res.data);
@@ -35,7 +35,7 @@ function Skills() {
       }
 
       await axios.put(
-        "http://localhost:5000/api/skills",
+        `${import.meta.env.VITE_API_URL}/api/skills`,
         {
           skills: skillData.skills,
         },

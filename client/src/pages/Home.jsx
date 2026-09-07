@@ -15,7 +15,7 @@ function Home() {
   const fetchHome = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/home"
+        `${import.meta.env.VITE_API_URL}/api/home`
       );
 
       setHome(res.data);
@@ -35,7 +35,7 @@ function Home() {
       }
 
       await axios.put(
-        "http://localhost:5000/api/home",
+        `${import.meta.env.VITE_API_URL}/api/home`,
         home,
         {
           headers: {

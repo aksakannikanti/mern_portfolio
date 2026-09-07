@@ -16,7 +16,7 @@ function Resume() {
   const fetchResume = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/resume"
+        `${import.meta.env.VITE_API_URL}/api/resume`
       );
 
       setResume(res.data);
@@ -44,7 +44,7 @@ function Resume() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/resume/upload",
+        `${import.meta.env.VITE_API_URL}/api/resume/upload`,
         formData,
         {
           headers: {
@@ -79,7 +79,7 @@ function Resume() {
           className="btn btn-primary"
           onClick={() =>
             window.open(
-              `http://localhost:5000/${resume.filepath}`,
+              `${import.meta.env.VITE_API_URL}/${resume.filepath}`,
               "_blank"
             )
           }
